@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://purl.org/dc/terms/">
     
-    <title>Tabular Dataset Codebook Test</title>
-    <creator>Beth Stern</creator>
-    <dateSubmitted>09/26/2014</dateSubmitted>
+    <rdf:Description about="{URI-for-this-object}">
+      <title>Tabular Dataset Codebook Test</title>
+      <creator>Beth Stern</creator>
+      <dateSubmitted>09/26/2014</dateSubmitted>
+    </rdf:Description>
     
 </rdf:RDF>

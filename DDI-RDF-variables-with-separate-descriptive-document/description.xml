@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns="http://rdf-vocabulary.ddialliance.org/phdd#"
+    xmlns:ddi-disco="http://rdf-vocabulary.ddialliance.org/discovery#"
+    xmlns:ddi-phdd="http://rdf-vocabulary.ddialliance.org/phdd#" xmlns:dc-terms="http://purl.org/dc/terms/"
+    xmlns:dcat="http://www.w3.org/ns/dcat#" xmlns:skos="http://www.w3.org/2004/02/skos/core">
+
+    <rdf:Description about="{URI-for-this-object}">
+
+        <dc-terms:title>Tabular Dataset Codebook Test</dc-terms:title>
+        <dc-terms:creator>Beth Stern</dc-terms:creator>
+        <dc-terms:dateSubmitted>09/26/2014</dc-terms:dateSubmitted>
+
+        <rdf:type resource="ddi-disco:LogicalDataset"/>
+
+        
+        
+        <ddi-disco:dataFile>
+            <rdf:type resource="ddi-disco:Datafile"/>
+            <rdf:type resource="ddi-phdd:Table"/>
+            <fileName resource="{URI-to-datastream-containing-tabular-data}"/>
+            <isDescribedBy>
+                <rdf:type resource="ddi-phdd:TableDescription"/>
+                <overallRecordCount>10000</overallRecordCount>
+            </isDescribedBy>
+            <isStructuredBy>
+                <rdf:type resource="ddi-phdd:Delimited"/>
+                <namesOnFirstRow>false</namesOnFirstRow>    
+                <column>
+                    <rdf:type resource="ddi-phdd:Column"/>
+                    <skos:prefLabel>variable one</skos:prefLabel>
+                    <dc-terms:description>variable one description</dc-terms:description>
+                    <isDescribedBy>
+                        <rdf:type resource="ddi-phdd:DelimitedColumnDescription"/>
+                        <recommendedDataType>numerical</recommendedDataType>
+                    </isDescribedBy>
+                </column>
+                
+                <column>
+                    <rdf:type resource="ddi-phdd:Column"/>
+                    <skos:prefLabel>variable one</skos:prefLabel>
+                    <dc-terms:description>variable one description</dc-terms:description>
+                    <isDescribedBy>
+                        <rdf:type resource="ddi-phdd:DelimitedColumnDescription"/>
+                        <recommendedDataType>text</recommendedDataType>
+                    </isDescribedBy>
+                </column>
+            </isStructuredBy>
+        </ddi-disco:dataFile>
+
+
+    </rdf:Description>
+
+</rdf:RDF>
