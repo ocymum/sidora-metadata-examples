@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<DataSet xmlns="ddi:dataset:3_1"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="ddi:dataset:3_1 file:/Users/ajs6f/Documents/sidora/metadata_report/DDI_3_1_2009-10-18_Documentation_XMLSchema/XMLSchema/dataset.xsd" isVersionable="true" id="">
-    <Name>Example using DDI DataSet schema</Name>
-</DataSet>
