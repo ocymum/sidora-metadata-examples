@@ -1,6 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<DataSet xmlns="ddi:dataset:3_1"
+<VariableScheme xmlns="ddi:logicalproduct:3_1" xmlns:r="ddi:reusable:3_1"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="ddi:dataset:3_1 file:/Users/ajs6f/Documents/sidora/metadata_report/DDI_3_1_2009-10-18_Documentation_XMLSchema/XMLSchema/dataset.xsd" isVersionable="true" id="">
-    <Name>Example using DDI DataSet schema</Name>
-</DataSet>
+    xsi:schemaLocation="ddi:logicalproduct:3_1 file:/Users/ajs6f/Documents/sidora/metadata_report/DDI_3_1_2009-10-18_Documentation_XMLSchema/XMLSchema/logicalproduct.xsd"
+    id="">
+
+    <Variable id="var1">
+        <r:Label>variable one</r:Label>
+        <r:Description>variable one description</r:Description>
+        <Representation>
+            <NumericRepresentation type="Double">
+                <r:NumberRange>
+                    <r:Low>0</r:Low>
+                    <r:High>50</r:High>
+                </r:NumberRange>
+            </NumericRepresentation>
+        </Representation>
+    </Variable>
+
+    <Variable id="var2">
+        <r:Label>variable two</r:Label>
+        <r:Description>variable two description</r:Description>
+        <Representation>
+            <TextRepresentation/>
+        </Representation>
+    </Variable>
+
+    <Variable id="var3">
+        <r:Label>variable three</r:Label>
+        <r:Description>variable three description</r:Description>
+        <Representation>
+            <NumericRepresentation type="Integer">
+                <r:NumberRange>
+                    <r:Low>10</r:Low>
+                    <r:High>20</r:High>
+                </r:NumberRange>
+            </NumericRepresentation>
+        </Representation>
+    </Variable>
+
+    <Variable id="var4">
+        <r:Label>variable four</r:Label>
+        <r:Description>variable four description</r:Description>
+        <Representation>
+            <DateTimeRepresentation type="Date"/>
+        </Representation>
+    </Variable>
+
+
+</VariableScheme>
