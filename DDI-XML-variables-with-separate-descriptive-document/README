@@ -1,2 +1,4 @@
 An example of using DDI XML to describe variables but another form (in this case DC RDF) to describe the dataset itself.
 
+description.xml contains the DC RDF portion (in RDF/XML) and VariableScheme.xml contains the DDI XML portion.
+

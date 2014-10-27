@@ -13,8 +13,6 @@
 
         <rdf:type resource="ddi-disco:LogicalDataset"/>
 
-        
-        
         <ddi-disco:dataFile>
             <rdf:type resource="ddi-disco:Datafile"/>
             <rdf:type resource="ddi-phdd:Table"/>
@@ -32,6 +30,12 @@
                     <dc-terms:description>variable one description</dc-terms:description>
                     <isDescribedBy>
                         <rdf:type resource="ddi-phdd:DelimitedColumnDescription"/>
+                        <!-- A serious weakness of the DDI RDF work is currently the lack of properties available to
+                            make assertions about range in numerical or date values. The available examples show a weird
+                        construction using SKOS vocabularies for the purpose, and not only would this force a
+                        naturally-numeric field in the data into an enumerated field, I'm not at all sure that they're
+                        using SKOS correctly. (I don't think they understand the difference between a (rooted) tree and
+                        a partial order.) -->
                         <recommendedDataType>numerical</recommendedDataType>
                     </isDescribedBy>
                 </column>
