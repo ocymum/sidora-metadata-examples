@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://si.edu"
+    xmlns:dc="http://purl.org/dc/terms/" xmlns:ddi-lp="ddi:logicalproduct:3_1"> 
+
+    <xs:import namespace="ddi:logicalproduct:3_1" schemaLocation="XMLSchema/logicalproduct.xsd"/>
+    
+    <xs:import namespace="http://purl.org/dc/terms/"
+        schemaLocation="http://dublincore.org/schemas/xmls/qdc/dcterms.xsd"/>
+
+    <xs:element name="record">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:group ref="dc:elementsAndRefinementsGroup"/>
+                <xs:element name="variables" type="ddi-lp:VariableSchemeType"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

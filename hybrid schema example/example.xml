@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record xmlns="http://si.edu" xmlns:dc="http://purl.org/dc/terms/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://si.edu schema.xsd">
+
+    <dc:creator>Beth Stern</dc:creator>
+    <dc:dateSubmitted>2014-10-30</dc:dateSubmitted>
+    <dc:dateAccepted>2014-10-31</dc:dateAccepted>
+    <dc:title>A groovy dataset</dc:title>
+    <dc:abstract>Here's some exposition about this awesome dataset.</dc:abstract>
+    <dc:accrualPolicy>Maybe there will be some more data!</dc:accrualPolicy>
+    <dc:rights>Info about rights.</dc:rights>
+
+    <variables isMaintainable="true" id="">
+        <VariableScheme id="">
+
+            <Variable id="var1">
+                <r:Label>variable one</r:Label>
+                <r:Description>variable one description</r:Description>
+                <Representation>
+                    <NumericRepresentation type="Double">
+                        <r:NumberRange>
+                            <r:Low>0</r:Low>
+                            <r:High>50</r:High>
+                        </r:NumberRange>
+                    </NumericRepresentation>
+                </Representation>
+            </Variable>
+
+            <Variable id="var2">
+                <r:Label>variable two</r:Label>
+                <r:Description>variable two description</r:Description>
+                <Representation>
+                    <TextRepresentation/>
+                </Representation>
+            </Variable>
+
+            <Variable id="var3">
+                <r:Label>variable three</r:Label>
+                <r:Description>variable three description</r:Description>
+                <Representation>
+                    <NumericRepresentation type="Integer">
+                        <r:NumberRange>
+                            <r:Low>10</r:Low>
+                            <r:High>20</r:High>
+                        </r:NumberRange>
+                    </NumericRepresentation>
+                </Representation>
+            </Variable>
+
+            <Variable id="var4">
+                <r:Label>variable four</r:Label>
+                <r:Description>variable four description</r:Description>
+                <Representation>
+                    <!-- DDI offers several kinds of "date-time", which map onto XML Schema data types. Unfortunately, it
+                    may not always be obvious which to pick. -->
+                    <DateTimeRepresentation type="Date"/>
+                </Representation>
+            </Variable>
+
+            <Variable id="var5">
+                <r:Label>variable five</r:Label>
+                <r:Description>variable five description</r:Description>
+                <Representation>
+                    <CodeRepresentation>
+                        <!-- Notice the way in which a code scheme must be available as a reference. I have not been able to
+                    find any way in which a code scheme can be offered in the simple, in-line manner. -->
+                        <r:CodeSchemeReference>
+                            <r:ID>simpleCodeScheme</r:ID>
+                        </r:CodeSchemeReference>
+                    </CodeRepresentation>
+                </Representation>
+            </Variable>
+        </VariableScheme>
+    </variables>
+</record>
