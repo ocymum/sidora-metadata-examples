@@ -65,7 +65,7 @@
                         <!-- Notice the way in which a code scheme must be available as a reference. I have not been able to
                     find any way in which a code scheme can be offered in the simple, in-line manner. -->
                         <r:CodeSchemeReference>
-                            <r:ID>simpleCodeScheme</r:ID>
+                            <r:URI>http://codelists.example.com/listOfThingsInDDIFormat</r:URI>
                         </r:CodeSchemeReference>
                     </CodeRepresentation>
                 </Representation>
