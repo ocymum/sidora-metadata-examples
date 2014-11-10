@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="urn:si.edu#"
+    xmlns:si="urn:si.edu#" xmlns:dc="http://purl.org/dc/terms/" version="2.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.w3.org/2001/XMLSchema http://www.w3.org/2009/XMLSchema/XMLSchema.xsd"> 
+    
+    <xs:import namespace="http://purl.org/dc/terms/" schemaLocation="dcterms.xsd"/>
+
+    <xs:element name="record">
+        <xs:complexType mixed="false">
+            <xs:sequence>
+                <xs:group ref="dc:elementsAndRefinementsGroup"/> 
+                <xs:element name="variables" type="si:variablesType"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:complexType name="variablesType" mixed="false">
+        <xs:sequence>
+            <xs:choice minOccurs="1" maxOccurs="unbounded">
+                <xs:element name="variable" type="si:variableType"/>
+                <xs:element name="integerVariable" type="si:integerVariableType"/>
+                <xs:element name="enumeratedVariable" type="si:enumeratedVariableType"/>
+                <xs:element name="decimalVariable" type="si:decimalVariableType"/>
+            </xs:choice>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:complexType name="variableType" mixed="false">
+        <xs:all>
+            <xs:element name="range" type="si:rangeType" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="values" type="si:valuesType" minOccurs="0" maxOccurs="1"/>
+        </xs:all>
+        <xs:attribute name="name" type="xs:string" use="required"/>
+        <xs:attribute name="type" type="xs:anyURI" default="http://www.w3.org/2001/XMLSchema#string"/>
+    </xs:complexType>
+    
+    <xs:complexType name="rangeType" mixed="false">
+        <xs:all>
+            <xs:element name="min" minOccurs="0" maxOccurs="1" type="xs:string"/>
+            <xs:element name="max" minOccurs="0" maxOccurs="1" type="xs:string"/>
+        </xs:all>
+    </xs:complexType>
+    
+    <xs:complexType name="valuesType" mixed="false">
+        <xs:sequence>
+            <xs:element name="value" minOccurs="1" maxOccurs="unbounded" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:complexType name="integerVariableType" mixed="false">
+        <xs:complexContent>
+            <xs:restriction base="si:variableType">
+                <xs:all>
+                    <xs:element name="range" type="si:rangeType" minOccurs="0" maxOccurs="1"/>
+                    <xs:element name="values" type="si:valuesType" minOccurs="0" maxOccurs="1"/>
+                </xs:all>
+                <xs:attribute name="type" type="xs:anyURI" fixed="http://www.w3.org/2001/XMLSchema#integer"/>
+            </xs:restriction>
+        </xs:complexContent>
+    </xs:complexType>   
+    
+    <xs:complexType name="decimalVariableType" mixed="false">
+        <xs:complexContent>
+            <xs:restriction base="si:variableType">
+                <xs:all>
+                    <xs:element name="range" type="si:rangeType" minOccurs="0" maxOccurs="1"/>
+                    <xs:element name="values" type="si:valuesType" minOccurs="0" maxOccurs="1"/>
+                </xs:all>
+                <xs:attribute name="type" type="xs:anyURI" fixed="http://www.w3.org/2001/XMLSchema#decimal"/>
+            </xs:restriction>
+        </xs:complexContent>
+    </xs:complexType>
+    
+    <xs:complexType name="enumeratedVariableType" mixed="false">
+        <xs:complexContent>
+            <xs:restriction base="si:variableType">
+                <xs:all>
+                    <xs:element name="range" type="si:rangeType" minOccurs="0" maxOccurs="1"/>
+                    <xs:element name="values" type="si:valuesType" minOccurs="1" maxOccurs="1"/>
+                </xs:all>
+            </xs:restriction>
+        </xs:complexContent>
+    </xs:complexType>
+    
+</xs:schema>

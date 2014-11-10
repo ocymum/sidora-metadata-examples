@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record xmlns="urn:si.edu#" xmlns:dc="http://purl.org/dc/terms/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="urn:si.edu# schema.xsd">
+
+    <dc:creator>Beth Stern</dc:creator>
+    <dc:dateSubmitted>2014-10-30</dc:dateSubmitted>
+    <dc:dateAccepted>2014-10-31</dc:dateAccepted>
+    <dc:title>A groovy dataset</dc:title>
+    <dc:abstract>Here's some exposition about this awesome dataset.</dc:abstract>
+    <dc:accrualPolicy>Maybe there will be some more data!</dc:accrualPolicy>
+    <dc:rights>Info about rights.</dc:rights>
+
+    <variables>
+        
+        <!-- a plain variable about which we know little -->
+        <variable name="Variable with an explicit type" type="http://my.definitions/types/typeDef"/>
+        
+        <!-- shorthand for variable with type http://www.w3.org/2001/XMLSchema#string  -->
+        <variable name="Variable with string type"/>
+        
+        <enumeratedVariable name="Here's an enumerated variable with inline values and default type string">
+            <values>
+                <value>Beth</value>
+                <value>Dan</value>
+                <value>Thorny</value>
+            </values>
+        </enumeratedVariable>
+        
+        <enumeratedVariable name="Here's an enumerated variable with inline values and an explicit type"
+            type="http://www.w3.org/2001/XMLSchema#integer">
+            <values>
+                <value>234543</value>
+                <value>34534</value>
+                <value>938409382</value>
+            </values>
+        </enumeratedVariable>
+        
+        <!-- shorthand for variable with type http://www.w3.org/2001/XMLSchema#integer -->
+        <integerVariable name="Cool Variable">
+            <!-- we can describe the range of any variable, but integers are a case where it's obvious useful -->
+            <range>
+                <max>1</max>
+                <min>0</min> 
+            </range>
+        </integerVariable>
+        
+        <!-- shorthand for variable with type http://www.w3.org/2001/XMLSchema#decimal -->
+        <decimalVariable name="Funky Variable">
+            <!-- we can offer enumerated values for any variable, not just those that are specially called-out
+                as enumerations -->
+            <values>
+                <value>45.3</value>
+                <value>98.6</value>
+            </values>
+        </decimalVariable>
+        
+
+    </variables>
+</record>
