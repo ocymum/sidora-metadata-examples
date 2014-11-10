@@ -54,6 +54,13 @@
             </values>
         </decimalVariable>
         
-
+        <integerVariable name="Variable with some missing values">
+            <valueForMissingValue>-1</valueForMissingValue>
+        </integerVariable>
+        
+        <decimalVariable name="Variable with a UoM">
+            <uom>Alcohol by volume</uom>
+        </decimalVariable>
+        
     </variables>
 </record>
