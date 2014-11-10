@@ -62,5 +62,8 @@
             <uom>Alcohol by volume</uom>
         </decimalVariable>
         
+        <enumeratedVariable name="An enumerated variable using a network-accessible vocabulary"
+            vocabulary="http://awesome.vocabs.com/colors"/>
+        
     </variables>
 </record>

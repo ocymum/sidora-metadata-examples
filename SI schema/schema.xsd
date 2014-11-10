@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="urn:si.edu#"
-    xmlns:si="urn:si.edu#" xmlns:dc="http://purl.org/dc/terms/" version="2.0"
+    xmlns:si="urn:si.edu#" xmlns:dc="http://purl.org/dc/terms/" version="1.1"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://www.w3.org/2001/XMLSchema http://www.w3.org/2009/XMLSchema/XMLSchema.xsd">
 
@@ -74,9 +74,9 @@
 
     <xs:complexType name="enumeratedVariableType" mixed="false">
         <xs:complexContent>
-            <xs:restriction base="si:variableType">
-                <xs:group ref="si:variableDescriptionParts"/>
-            </xs:restriction>
+            <xs:extension base="si:variableType">
+                <xs:attribute name="vocabulary" type="xs:anyURI"/>
+            </xs:extension>
         </xs:complexContent>
     </xs:complexType>
 
