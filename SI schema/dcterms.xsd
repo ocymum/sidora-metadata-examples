@@ -142,48 +142,8 @@
       </xs:restriction>
     </xs:simpleContent>
   </xs:complexType>
-  <xs:complexType name="RFC3066">
-    <xs:simpleContent>
-      <xs:restriction base="dc:SimpleLiteral">
-        <xs:simpleType>
-          <xs:restriction base="xs:language"/>
-        </xs:simpleType>
-        <xs:attribute ref="xml:lang" use="prohibited"/>
-      </xs:restriction>
-    </xs:simpleContent>
-  </xs:complexType>
-  <xs:complexType name="RFC4646">
-    <xs:simpleContent>
-      <xs:restriction base="dc:SimpleLiteral">
-        <xs:simpleType>
-          <xs:restriction base="xs:language"/>
-        </xs:simpleType>
-        <xs:attribute ref="xml:lang" use="prohibited"/>
-      </xs:restriction>
-    </xs:simpleContent>
-  </xs:complexType>
   
  
-  <xs:complexType name="Box">
-    <xs:simpleContent>
-      <xs:restriction base="dc:SimpleLiteral">
-        <xs:simpleType>
-          <xs:restriction base="xs:string"/>
-        </xs:simpleType>
-        <xs:attribute ref="xml:lang" use="prohibited"/>
-      </xs:restriction>
-    </xs:simpleContent>
-  </xs:complexType>
-  <xs:complexType name="TGN">
-    <xs:simpleContent>
-      <xs:restriction base="dc:SimpleLiteral">
-        <xs:simpleType>
-          <xs:restriction base="xs:string"/>
-        </xs:simpleType>
-        <xs:attribute ref="xml:lang" use="prohibited"/>
-      </xs:restriction>
-    </xs:simpleContent>
-  </xs:complexType>
   <xs:group name="elementsAndRefinementsGroup">
     <xs:annotation>
       <xs:documentation xml:lang="en"> This group is included as a convenience for schema authors who need to refer to

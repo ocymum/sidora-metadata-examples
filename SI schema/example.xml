@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<record xmlns="urn:si.edu#" xmlns:dc="http://purl.org/dc/terms/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<codebook xmlns="urn:si.edu#" xmlns:dc="http://purl.org/dc/terms/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="urn:si.edu# schema.xsd">
 
     <dc:creator>Beth Stern</dc:creator>
@@ -66,4 +66,4 @@
             vocabulary="http://awesome.vocabs.com/colors"/>
         
     </variables>
-</record>
+</codebook>
