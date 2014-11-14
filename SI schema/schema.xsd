@@ -34,6 +34,7 @@
                 <xs:element name="integerVariable" type="si:integerVariableType"/>
                 <xs:element name="enumeratedVariable" type="si:enumeratedVariableType"/>
                 <xs:element name="decimalVariable" type="si:decimalVariableType"/>
+                <xs:element name="booleanVariable" type="si:decimalVariableType"/>
             </xs:choice>
         </xs:sequence>
     </xs:complexType>

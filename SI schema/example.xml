@@ -44,6 +44,19 @@
             </range>
         </integerVariable>
         
+        <!-- A geographic variable -->
+        
+        <variable name="Geographic Variable" type="urn:si.edu/datatypes/geographic"/>
+        
+        <!-- Geographic variables with some specific qualities-->
+        
+        <variable name="Another Geographic Variable" type="urn:si.edu/datatypes/geographic;datum=wgs84"/>
+        <!-- Notice here that we use matrix parameters to specify important geographical qualities of the data, but we
+            could just as well use some other means.-->
+        <variable name="Yet Another Geographic Variable"
+            type="urn:si.edu/datatypes/geographic;datum=wgs84;projection=mercator"/>
+
+        
         <!-- shorthand for variable with type http://www.w3.org/2001/XMLSchema#decimal -->
         <decimalVariable name="Funky Variable">
             <!-- we can offer enumerated values for any variable, not just those that are specially called-out
@@ -53,6 +66,9 @@
                 <value>98.6</value>
             </values>
         </decimalVariable>
+        
+        <!-- shorthand for variable with type http://www.w3.org/2001/XMLSchema#boolean -->
+        <booleanVariable name="A boolean variable"/>
         
         <integerVariable name="Variable with some missing values">
             <valueForMissingValue>-1</valueForMissingValue>
