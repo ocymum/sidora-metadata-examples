@@ -102,5 +102,25 @@
             <dateFormat>NONSTANDARD</dateFormat>
         </variable>
         
+        <!-- A variable with a date type in standard format and a range-->
+        <variable name="Variable Foo" type="http://www.w3.org/2001/XMLSchema#date">
+            <dateFormat>STANDARD</dateFormat>
+            <range>
+                <min>2014-12-02</min>
+                <max>2014-12-05</max>
+            </range>
+        </variable>
+        
+        <!-- A variable with a date type in standard format and a set of allowable values-->
+        <variable name="Variable Foo" type="http://www.w3.org/2001/XMLSchema#date">
+            <dateFormat>STANDARD</dateFormat>
+            <enumeration>
+                <value>2014-12-02</value>
+                <value>2014-12-03</value>
+                <value>2014-12-04</value>
+                <value>2014-12-05</value>
+            </enumeration>
+        </variable>
+        
     </variables>
 </codebook>
