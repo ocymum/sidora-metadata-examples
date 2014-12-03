@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<codebook xmlns="urn:si.edu#" xmlns:dc="http://purl.org/dc/terms/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="urn:si.edu# schema.xsd">
+<codebook xmlns="urn:si.edu/codebook#" xmlns:dc="http://purl.org/dc/terms/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="urn:si.edu/codebook# schema.xsd">
 
     <dc:creator>Beth Stern</dc:creator>
+    <dc:created>2014-09-20</dc:created>
     <dc:dateSubmitted>2014-10-30</dc:dateSubmitted>
     <dc:dateAccepted>2014-10-31</dc:dateAccepted>
     <dc:title>A groovy dataset</dc:title>
-    <dc:abstract>Here's some exposition about this awesome dataset.</dc:abstract>
-    <dc:accrualPolicy>Maybe there will be some more data!</dc:accrualPolicy>
+    <dc:abstract>Here's a summary of this dataset.</dc:abstract>
+    <dc:description>It's a dataset, full of data.</dc:description>
     <dc:rights>Info about rights.</dc:rights>
 
     <variables>
@@ -18,68 +19,75 @@
         <!-- shorthand for variable with type http://www.w3.org/2001/XMLSchema#string  -->
         <variable name="Variable with string type"/>
         
-        <enumeratedVariable name="Here's an enumerated variable with inline values and default type string">
-            <values>
+        <variable name="Here's a variable with inline values and default type string">
+            <enumeration>
                 <value>Beth</value>
                 <value>Dan</value>
                 <value>Thorny</value>
-            </values>
-        </enumeratedVariable>
+            </enumeration>
+        </variable>
         
-        <enumeratedVariable name="Here's an enumerated variable with inline values and an explicit type"
+        <variable name="Here's an variable with inline values and an explicit type"
             type="http://www.w3.org/2001/XMLSchema#integer">
-            <values>
+            <enumeration>
                 <value>234543</value>
                 <value>34534</value>
                 <value>938409382</value>
-            </values>
-        </enumeratedVariable>
+            </enumeration>
+        </variable>
         
-        <!-- shorthand for variable with type http://www.w3.org/2001/XMLSchema#integer -->
-        <integerVariable name="Cool Variable">
-            <!-- we can describe the range of any variable, but integers are a case where it's obvious useful -->
+        <variable name="Here's a variable with values chosen from a network resource and default type string">
+            <enumeration vocabulary="http://vocabs.example.com/some-vocab"/>
+            
+        </variable>
+        
+        <variable name="Cool Variable" type="http://www.w3.org/2001/XMLSchema#integer">
+            <!-- we can describe the range of any variable, but integers are a case where it's obviously useful -->
             <range>
                 <max>1</max>
                 <min>0</min> 
             </range>
-        </integerVariable>
+        </variable>
         
         <!-- A geographic variable -->
-        
         <variable name="Geographic Variable" type="urn:si.edu/datatypes/geographic"/>
         
         <!-- Geographic variables with some specific qualities-->
+        <variable name="Geographic Variable" type="urn:si.edu/datatypes/geographic">
+            <geographicInfoFormat>
+                <projection>EPSG:2048</projection>
+                <datum>WGS84</datum>
+                <format>EPSG:2048</format>
+            </geographicInfoFormat>
+        </variable>
         
-        <variable name="Another Geographic Variable" type="urn:si.edu/datatypes/geographic;datum=wgs84"/>
-        <!-- Notice here that we use matrix parameters to specify important geographical qualities of the data, but we
-            could just as well use some other means.-->
-        <variable name="Yet Another Geographic Variable"
-            type="urn:si.edu/datatypes/geographic;datum=wgs84;projection=mercator"/>
-
-        
-        <!-- shorthand for variable with type http://www.w3.org/2001/XMLSchema#decimal -->
-        <decimalVariable name="Funky Variable">
+        <variable name="Funky Variable" type="http://www.w3.org/2001/XMLSchema#decimal">
             <!-- we can offer enumerated values for any variable, not just those that are specially called-out
                 as enumerations -->
-            <values>
+            <enumeration>
                 <value>45.3</value>
                 <value>98.6</value>
-            </values>
-        </decimalVariable>
+            </enumeration>
+            <range>
+                <min>45.3</min>
+                <max>98.6</max>
+            </range>
+        </variable>
         
         <!-- shorthand for variable with type http://www.w3.org/2001/XMLSchema#boolean -->
-        <booleanVariable name="A boolean variable"/>
+        <variable name="A boolean variable" type="http://www.w3.org/2001/XMLSchema#boolean"/>
         
-        <integerVariable name="Variable with some missing values">
+        <variable name="Variable with some missing values">
             <valueForMissingValue>-1</valueForMissingValue>
-        </integerVariable>
+        </variable>
         
-        <decimalVariable name="Variable with a UoM">
+        <variable name="Variable with a UoM">
             <uom>Alcohol by volume</uom>
-        </decimalVariable>
+        </variable>
         
-        <enumeratedVariable name="An enumerated variable using a network-accessible vocabulary"
-            vocabulary="http://awesome.vocabs.com/colors"/>
+        <variable name="An enumerated variable using a network-accessible vocabulary">
+            <enumeration vocabulary="http://vocabs.example.com/colors"/>
+        </variable>
         
     </variables>
 </codebook>

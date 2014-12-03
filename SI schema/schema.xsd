@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="urn:si.edu#"
-    xmlns:si="urn:si.edu#" xmlns:dc="http://purl.org/dc/terms/" version="1.1"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" xmlns:si="urn:si.edu/codebook#"
+    targetNamespace="urn:si.edu/codebook#"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.1" 
+    xmlns:dc="http://purl.org/dc/terms/" 
     xsi:schemaLocation="http://www.w3.org/2001/XMLSchema http://www.w3.org/2009/XMLSchema/XMLSchema.xsd">
 
     <xs:import namespace="http://purl.org/dc/terms/" schemaLocation="dcterms.xsd"/>
@@ -9,9 +9,9 @@
     <xs:element name="codebook">
         <xs:annotation>
             <xs:documentation>
-                The only top-level element in this schema. A description of the tabular data with which it is associated
-                via citation information and other description, particularly including descriptions for each variable
-                present.
+                The only top-level element in this schema. A description of the tabular data with which an instance of
+                this schema is associated via citation information and other description, particularly including
+                descriptions for each variable present.
             </xs:documentation>
         </xs:annotation>
         <xs:complexType mixed="false">
@@ -31,10 +31,6 @@
         <xs:sequence>
             <xs:choice minOccurs="1" maxOccurs="unbounded">
                 <xs:element name="variable" type="si:variableType"/>
-                <xs:element name="integerVariable" type="si:integerVariableType"/>
-                <xs:element name="enumeratedVariable" type="si:enumeratedVariableType"/>
-                <xs:element name="decimalVariable" type="si:decimalVariableType"/>
-                <xs:element name="booleanVariable" type="si:decimalVariableType"/>
             </xs:choice>
         </xs:sequence>
     </xs:complexType>
@@ -46,21 +42,37 @@
             </xs:documentation>
         </xs:annotation>
         <xs:group ref="si:variableDescriptionParts"/>
-        <xs:attribute name="name" type="xs:string" use="required"/>
-        <xs:attribute name="type" type="xs:anyURI" default="http://www.w3.org/2001/XMLSchema#string"/>
+        <xs:attribute name="name" type="xs:string" use="required">
+            <xs:annotation>
+                <xs:documentation>
+                    A short human-readable name for this variable.
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="type" type="xs:anyURI" default="http://www.w3.org/2001/XMLSchema#string">
+            <xs:annotation>
+                <xs:documentation>
+                    The data type of this variable.
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
     </xs:complexType>
 
     <xs:group name="variableDescriptionParts">
         <xs:annotation>
             <xs:documentation>
-                ELements available in any variable description.
+                Elements available in any variable description.
             </xs:documentation>
         </xs:annotation>
         <xs:all>
             <xs:element name="range" type="si:rangeType" minOccurs="0" maxOccurs="1"/>
-            <xs:element name="values" type="si:valuesType" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="enumeration" type="si:enumerationType" minOccurs="0" maxOccurs="1"/>
             <xs:element name="uom" type="si:unitType" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="label" type="si:labelType" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="description" type="si:descriptionType" minOccurs="0" maxOccurs="1"/>
             <xs:element name="valueForMissingValue" type="si:missingValueType" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="dateFormat" type="si:dateFormatType" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="geographicInfoFormat" type="si:geographicInfoFormatType" minOccurs="0" maxOccurs="1"/>
         </xs:all>
     </xs:group>
 
@@ -76,90 +88,31 @@
         </xs:all>
     </xs:complexType>
 
-    <xs:complexType name="valuesType" mixed="false">
+    <xs:complexType name="enumerationType" mixed="false">
         <xs:annotation>
             <xs:documentation>
                 An enumeration of values that a variable described by the parent of this element is expected to take on.
             </xs:documentation>
         </xs:annotation>
         <xs:sequence>
-            <xs:element name="value" minOccurs="1" maxOccurs="unbounded" type="xs:string"/>
+            <xs:element name="value" minOccurs="0" maxOccurs="unbounded" type="xs:string"/>
         </xs:sequence>
-    </xs:complexType>
-
-    <xs:complexType name="integerVariableType" mixed="false">
-        <xs:annotation>
-            <xs:documentation>
-                A specialization of variableType indicating that the variable described by this element is expected to
-                take on xs:integer values.
-            </xs:documentation>
-        </xs:annotation>
-        <xs:complexContent>
-            <xs:restriction base="si:variableType">
-                <xs:group ref="si:variableDescriptionParts"/>
-                <xs:attribute name="type" type="xs:anyURI" fixed="http://www.w3.org/2001/XMLSchema#integer"/>
-            </xs:restriction>
-        </xs:complexContent>
-    </xs:complexType>
-
-    <xs:complexType name="decimalVariableType" mixed="false">
-        <xs:annotation>
-            <xs:documentation>
-                A specialization of variableType indicating that the variable described by this element is expected to
-                take on xs:decimal values.
-            </xs:documentation>
-        </xs:annotation>
-        <xs:complexContent>
-            <xs:restriction base="si:variableType">
-                <xs:group ref="si:variableDescriptionParts"/>
-                <xs:attribute name="type" type="xs:anyURI" fixed="http://www.w3.org/2001/XMLSchema#decimal"/>
-            </xs:restriction>
-        </xs:complexContent>
-    </xs:complexType>
-    
-    <xs:complexType name="booleanVariableType" mixed="false">
-        <xs:annotation>
-            <xs:documentation>
-                A specialization of variableType indicating that the variable described by this element is expected to
-                take on xs:boolean values.
-            </xs:documentation>
-        </xs:annotation>
-        <xs:complexContent>
-            <xs:restriction base="si:variableType">
-                <xs:group ref="si:variableDescriptionParts"/>
-                <xs:attribute name="type" type="xs:anyURI" fixed="http://www.w3.org/2001/XMLSchema#boolean"/>
-            </xs:restriction>
-        </xs:complexContent>
-    </xs:complexType>
-
-    <xs:complexType name="enumeratedVariableType" mixed="false">
-        <xs:annotation>
-            <xs:documentation>
-                A specialization of variableType indicating that the variable described by this element is expected to
-                take on certain enumerated values. These values may be offered in-line in a values child element, or via
-                the vocabulary attribute.
-            </xs:documentation>
-        </xs:annotation>
-        <xs:complexContent>
-            <xs:extension base="si:variableType">
-                <xs:attribute name="vocabulary" type="xs:anyURI">
-                    <xs:annotation>
-                        <xs:documentation>
-                            An URI that points to a resource providing values taken on by this variable. The language
-                            used to encode such a vocabulary is not defined by this schema, but suitable options would
-                            certainly include SKOS.
-                        </xs:documentation>
-                    </xs:annotation>
-                </xs:attribute>
-            </xs:extension>
-        </xs:complexContent>
+        <xs:attribute name="vocabulary" type="xs:anyURI">
+            <xs:annotation>
+                <xs:documentation>
+                    An URI that points to a resource providing values taken on by this variable. The language
+                    used to encode such a vocabulary is not defined by this schema, but suitable options would
+                    certainly include SKOS.
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
     </xs:complexType>
 
     <xs:simpleType name="unitType">
         <xs:annotation>
             <xs:documentation>
                 The Unit of Measurement associated to this variable, if one exists. The absence of this element does not
-                indicate that no UoM exists for this variable. It indicates that it is either unknown or unrecorded.
+                indicate that no UoM exists for this variable. It means instead that it is either unknown or unrecorded.
             </xs:documentation>
         </xs:annotation>
         <xs:restriction base="xs:string"/>
@@ -168,12 +121,91 @@
     <xs:simpleType name="missingValueType">
         <xs:annotation>
             <xs:documentation>
-                A lexical element appearing in data values for a given variable that indicates a missing or "null"
-                value. Appears as an element in variable descriptions in order to allow different "missing value"
-                markers to be used for different variables.
+                A lexical element appearing in data values for this variable that indicates a missing or "null" value.
+                Appears as an element in variable descriptions in order to allow different "missing value" markers to
+                be used for different variables.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string"/>
+    </xs:simpleType>
+    
+    <xs:simpleType name="descriptionType">
+        <xs:annotation>
+            <xs:documentation>
+                A human-readable description of this variable.
             </xs:documentation>
         </xs:annotation>
         <xs:restriction base="xs:string"/>
     </xs:simpleType>
 
+    <xs:simpleType name="labelType">
+        <xs:annotation>
+            <xs:documentation>
+                A human-readable label for this variable.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string"/>
+    </xs:simpleType>
+    
+    <xs:complexType name="geographicInfoFormatType">
+        <xs:annotation>
+            <xs:documentation>
+                A description of the form of geographic data for this variable. This is only appropriate for use with
+                variables recording geographic coordinate data.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:all>
+            <xs:element name="projection" type="xs:string" default="">
+                <xs:annotation>
+                    <xs:documentation>
+                        The geographic projecion of data in this variable, if one is used. The absence of this element
+                        indicates data in an unknown projection. For unprojected data, use this element empty. It would
+                        be convenient to use well-known codes for this element, such as EPSG codes, but other forms
+                        describing a projection can be used here with discretion.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="datum" type="xs:string">
+                <xs:annotation>
+                    <xs:documentation>
+                        The geographic datum of data in this variable. The absence of this element indicates an unknown
+                        or unrecorded datum.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="format" type="xs:string">
+                <xs:annotation>
+                    <xs:documentation>
+                        The syntactical format of data in this variable.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:all>
+    </xs:complexType>
+    
+    
+    <xs:simpleType name="dateFormatType">
+        <xs:annotation>
+            <xs:documentation>
+                A choice of date format for data in this variable. This is only appropriate for use with variables
+                recording date or date-time data.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="STANDARD">
+                <xs:annotation>
+                    <xs:documentation>
+                        Any ISO 8601 date or date-time format.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="NONSTANDARD">
+                <xs:annotation>
+                    <xs:documentation>
+                        Any date or date-time format that is not an ISO 8601 format. 
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
 </xs:schema>
