@@ -183,7 +183,6 @@
         </xs:all>
     </xs:complexType>
     
-    
     <xs:simpleType name="dateFormatType">
         <xs:annotation>
             <xs:documentation>
