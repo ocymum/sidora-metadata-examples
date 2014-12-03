@@ -70,7 +70,7 @@
             <xs:element name="uom" type="si:unitType" minOccurs="0" maxOccurs="1"/>
             <xs:element name="label" type="si:labelType" minOccurs="0" maxOccurs="1"/>
             <xs:element name="description" type="si:descriptionType" minOccurs="0" maxOccurs="1"/>
-            <xs:element name="valueForMissingValue" type="si:missingValueType" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="valueForMissingValue" type="si:missingValueType" minOccurs="0" maxOccurs="unbounded"/>
             <xs:element name="dateFormat" type="si:dateFormatType" minOccurs="0" maxOccurs="1"/>
             <xs:element name="geographicInfoFormat" type="si:geographicInfoFormatType" minOccurs="0" maxOccurs="1"/>
         </xs:all>

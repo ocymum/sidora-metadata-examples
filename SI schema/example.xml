@@ -96,6 +96,12 @@
             <valueForMissingValue>-1</valueForMissingValue>
         </variable>
         
+        <!-- a variable with some missing values under different codes -->
+        <variable name="Variable 123">
+            <valueForMissingValue>NONE</valueForMissingValue>
+            <valueForMissingValue>ABSENT</valueForMissingValue>
+        </variable>
+        
         <!-- a variable with a UoM -->
         <variable name="Variable XSR">
             <!-- UoMs are free-text -->
