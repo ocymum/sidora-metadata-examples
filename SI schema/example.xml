@@ -59,7 +59,16 @@
             <geographicInfoFormat>
                 <projection>EPSG:2048</projection>
                 <datum>WGS84</datum>
-                <format>EPSG:2048</format>
+                <format>DCMI Box with DCSV syntax</format>
+            </geographicInfoFormat>
+        </variable>
+        
+        <!-- A geographic variable with other specific qualities-->
+        <variable name="Geographic Variable" type="urn:si.edu/datatypes/geographic">
+            <geographicInfoFormat>
+                <projection/>
+                <datum>WGS84</datum>
+                <format>Decimal Degrees</format>
             </geographicInfoFormat>
         </variable>
         
