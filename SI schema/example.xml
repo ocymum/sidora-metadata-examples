@@ -29,7 +29,6 @@
                 nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</description>
         </variable>
         
-        
         <!-- shorthand for variable with type http://www.w3.org/2001/XMLSchema#string  -->
         <variable name="Variable with string type"/>
         
