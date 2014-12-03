@@ -161,7 +161,8 @@
                         The geographic projecion of data in this variable, if one is used. The absence of this element
                         indicates data in an unknown projection. For unprojected data, use this element empty. It would
                         be convenient to use well-known codes for this element, such as EPSG codes, but other forms
-                        describing a projection can be used here with discretion.
+                        describing a projection can be used here with discretion. Keep in mind that using a well-known
+                        code for projection may infer information about the datum in use.
                     </xs:documentation>
                 </xs:annotation>
             </xs:element>
