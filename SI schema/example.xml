@@ -66,6 +66,7 @@
         <!-- A geographic variable with other specific qualities-->
         <variable name="Geographic Variable" type="urn:si.edu/datatypes/geographic">
             <geographicInfoFormat>
+                <!-- an empty projection element indicates unprojected geographic data -->
                 <projection/>
                 <datum>WGS84</datum>
                 <format>Decimal Degrees</format>
