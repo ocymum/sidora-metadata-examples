@@ -13,13 +13,14 @@
 
     <variables>
         
-        <!-- a plain variable about which we know little -->
+        <!-- a minimal variable description -->
         <variable name="Variable with an explicit type" type="http://my.definitions/types/typeDef"/>
         
         <!-- shorthand for variable with type http://www.w3.org/2001/XMLSchema#string  -->
         <variable name="Variable with string type"/>
         
-        <variable name="Here's a variable with inline values and default type string">
+        <!--  a variable with inline values and default type string -->
+        <variable name="Variable 99">
             <enumeration>
                 <value>Beth</value>
                 <value>Dan</value>
@@ -27,7 +28,8 @@
             </enumeration>
         </variable>
         
-        <variable name="Here's an variable with inline values and an explicit type"
+        <!-- a variable with inline values and an explicit type -->
+        <variable name="Variable 12"
             type="http://www.w3.org/2001/XMLSchema#integer">
             <enumeration>
                 <value>234543</value>
@@ -36,23 +38,23 @@
             </enumeration>
         </variable>
         
-        <variable name="Here's a variable with values chosen from a network resource and default type string">
+        <!-- a variable with values chosen from a network resource and default type string -->
+        <variable name="A variable">
             <enumeration vocabulary="http://vocabs.example.com/some-vocab"/>
-            
         </variable>
         
+        <!-- we can describe the range of any variable, but numericals are a case where it's obviously useful -->
         <variable name="Cool Variable" type="http://www.w3.org/2001/XMLSchema#integer">
-            <!-- we can describe the range of any variable, but integers are a case where it's obviously useful -->
             <range>
-                <max>1</max>
-                <min>0</min> 
+                <max>11</max>
+                <min>99</min> 
             </range>
         </variable>
         
         <!-- A geographic variable -->
         <variable name="Geographic Variable" type="urn:si.edu/datatypes/geographic"/>
         
-        <!-- Geographic variables with some specific qualities-->
+        <!-- A geographic variable with some specific qualities-->
         <variable name="Geographic Variable" type="urn:si.edu/datatypes/geographic">
             <geographicInfoFormat>
                 <projection>EPSG:2048</projection>
@@ -62,31 +64,42 @@
         </variable>
         
         <variable name="Funky Variable" type="http://www.w3.org/2001/XMLSchema#decimal">
-            <!-- we can offer enumerated values for any variable, not just those that are specially called-out
-                as enumerations -->
+            <!-- We can offer enumerated values for any variable... -->
             <enumeration>
                 <value>45.3</value>
                 <value>98.6</value>
             </enumeration>
+            <!-- alongside a range. It is up to the instance-creator to make sure that these two kinds of description do
+            not contradict each other-->
             <range>
                 <min>45.3</min>
                 <max>98.6</max>
             </range>
         </variable>
         
-        <!-- shorthand for variable with type http://www.w3.org/2001/XMLSchema#boolean -->
-        <variable name="A boolean variable" type="http://www.w3.org/2001/XMLSchema#boolean"/>
+        <!-- a boolean variable -->
+        <variable name="Variable 34" type="http://www.w3.org/2001/XMLSchema#boolean"/>
         
-        <variable name="Variable with some missing values">
+        <!-- a variable with some missing values -->
+        <variable name="Variable 123">
+            <!-- recorded by valueForMissingValue -->
             <valueForMissingValue>-1</valueForMissingValue>
         </variable>
         
-        <variable name="Variable with a UoM">
+        <!-- a variable with a UoM -->
+        <variable name="Variable XSR">
+            <!-- UoMs are free-text -->
             <uom>Alcohol by volume</uom>
         </variable>
         
-        <variable name="An enumerated variable using a network-accessible vocabulary">
-            <enumeration vocabulary="http://vocabs.example.com/colors"/>
+        <!-- A variable with a date-time type in standard format -->
+        <variable name="Variable Foo" type="http://www.w3.org/2001/XMLSchema#dateTime">
+            <dateFormat>STANDARD</dateFormat>
+        </variable>
+        
+        <!-- A variable with a date type in non-standard format -->
+        <variable name="Variable Foo" type="http://www.w3.org/2001/XMLSchema#date">
+            <dateFormat>NONSTANDARD</dateFormat>
         </variable>
         
     </variables>
