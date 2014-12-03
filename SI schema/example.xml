@@ -16,6 +16,20 @@
         <!-- a minimal variable description -->
         <variable name="Variable with an explicit type" type="http://my.definitions/types/typeDef"/>
         
+        <!-- a variable description with a label -->
+        <variable name="Variable with an explicit type" type="http://my.definitions/types/typeDef">
+            <label>The important variable</label>
+        </variable>
+        
+        <!-- a variable description with a label and description -->
+        <variable name="Variable with an explicit type" type="http://my.definitions/types/typeDef">
+            <label>The important variable</label>
+            <description> This is the best variable ever. Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+                nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</description>
+        </variable>
+        
+        
         <!-- shorthand for variable with type http://www.w3.org/2001/XMLSchema#string  -->
         <variable name="Variable with string type"/>
         
