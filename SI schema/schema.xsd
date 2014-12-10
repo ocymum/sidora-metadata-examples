@@ -155,7 +155,7 @@
             </xs:documentation>
         </xs:annotation>
         <xs:all>
-            <xs:element name="projection" type="xs:string" default="">
+            <xs:element name="projection" type="xs:string" default="" minOccurs="0" maxOccurs="1">
                 <xs:annotation>
                     <xs:documentation>
                         The geographic projecion of data in this variable, if one is used. The absence of this element
@@ -166,7 +166,7 @@
                     </xs:documentation>
                 </xs:annotation>
             </xs:element>
-            <xs:element name="datum" type="xs:string">
+            <xs:element name="datum" type="xs:string" minOccurs="0" maxOccurs="1">
                 <xs:annotation>
                     <xs:documentation>
                         The geographic datum of data in this variable. The absence of this element indicates an unknown
@@ -174,7 +174,7 @@
                     </xs:documentation>
                 </xs:annotation>
             </xs:element>
-            <xs:element name="format" type="xs:string">
+            <xs:element name="format" type="xs:string" minOccurs="0" maxOccurs="1">
                 <xs:annotation>
                     <xs:documentation>
                         The syntactical format of data in this variable.
